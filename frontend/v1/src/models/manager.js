@@ -1,11 +1,10 @@
 class Manager {
 
-  constructor (id, firstName, lastName, username, passwordDigest, phone, email) {
+  constructor (id, firstName, lastName, username, phone, email) {
       this.id = id;
       this.firstName = firstName;
       this.lastName = lastName;
       this.username = username;
-      this.passwordDigest = passwordDigest;
       this.phone = phone;
       this.email = email;
   }
@@ -18,10 +17,7 @@ class Manager {
     `
     <ul>
       <li>
-        <h3> ${this.firstName} ${this.lastName} </h5>
-        <h5> Username: ${this.username} </h5>
-        <h5> Phone: ${this.phone} </h5>
-        <h5> Email: ${this.email} </h5>
+        <h5> ${this.firstName} ${this.lastName}  | ${this.username} | ${this.phone} | ${this.email} </h5>
       </li>
     </ul>
 
