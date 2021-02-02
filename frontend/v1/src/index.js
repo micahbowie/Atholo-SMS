@@ -2,6 +2,7 @@ const api = new API();
 document.addEventListener("DOMContentLoaded", () => {
   api.fetchManager(1)
   api.fetchEmployees()
+  api.fetchEquipmentItems()
   createEmployeeForm()
 })
 
@@ -89,4 +90,4 @@ for (const button of buttons){
 }
 
 
-// Mangers //
+// Equipment Item //

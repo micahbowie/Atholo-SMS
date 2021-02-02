@@ -55,13 +55,25 @@ class API {
      return this.url + '/equipment_items'
    }
       // Requests //
-   fetchEquipmentItems = () => {
-     return fetch(this.equipmentItemsURL).then(this.parseJSON)
-   }
+      fetchEquipmentItems = () => {
+         fetch(this.equipmentItemsURL)
+         .then(this.parseJSON)
+         .then(equipmentItems => {
+           for (const equipmentItem of equipmentItems){
+             let item = new EquipmentItem(equipmentItem.id, equipmentItem.name, equipmentItem.equipmentType, equipmentItem.uniqueId, equipmentItem.warranty, equipmentItem.manufactureId, equipmentItem.notes, equipmentItem.packId, equipmentItem.specs, equipmentItem.manual, equipmentItem.picture)
+             item.renderEquipmentItem();
+           }
+         })
+      }
 
-   fetchEquipmentItem = (id) => {
-     return fetch(this.equipmentItemsURL + `/${id}`).then(this.parseJSON)
-   }
+      fetchEquipmentItem = (id) => {
+         fetch(this.equipmentItemsURL)
+         .then(this.parseJSON)
+         .then(equipmentItem => {
+             let item = new EquipmentItem(equipmentItem.id, equipmentItem.name, equipmentItem.equipmentType, equipmentItem.uniqueId, equipmentItem.warranty, equipmentItem.manufactureId, equipmentItem.notes, equipmentItem.packId, equipmentItem.specs, equipmentItem.manual, equipmentItem.picture)
+             item.renderEquipmentItem();
+         })
+      }
 
     // Manager(s) //
 
