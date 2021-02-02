@@ -49,14 +49,6 @@ class API {
 
 
 
-   deletePokemon = (id) => {
-     return fetch(this.pokemonURL + `/${id}`, {
-       method: "DELETE",
-       headers: this.headers
-     }).then(this.parseJSON)
-   }
-
-
    // Equipment Item(s) //
 
    get equipmentItemsURL() {
@@ -78,13 +70,26 @@ class API {
     }
 
        // Requests //
-    fetchManagers = () => {
-      return fetch(this.managersURL).then(this.parseJSON)
-    }
+       fetchManagers = () => {
+          fetch(this.managersURL)
+          .then(this.parseJSON)
+          .then(managers => {
+            for (const manager of managers){
+              let mngr = new Manager(manager.id, manager.first_name, manager.last_name, manager.username, manager.phone, manager.email)
+              mngr.renderManager();
+            }
+          })
+       }
 
-    fetchManager = (id) => {
-      return fetch(this.managersURL + `/${id}`).then(this.parseJSON)
-    }
+     fetchManager = (id) => {
+      return fetch(this.managersURL + `/${id}`)
+      .then(this.parseJSON)
+      .then(manager => {
+          let mngr = new Manager(manager.id, manager.first_name, manager.last_name, manager.username, manager.phone, manager.email)
+          mngr.renderManager();
+
+      })
+     }
 
 
     // School(s) //

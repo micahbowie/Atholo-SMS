@@ -1,9 +1,12 @@
 const api = new API();
 document.addEventListener("DOMContentLoaded", () => {
-  createEmployeeForm();
+  api.fetchManager(1)
   api.fetchEmployees()
+  createEmployeeForm()
 })
 
+
+// Employee //
 
 function createEmployeeForm() {
   let employeeForm = document.getElementById("create-employee-container")
@@ -79,8 +82,11 @@ function employeeFormSubmission() {
 
 let buttons = document.querySelectorAll(".employeeButton")
 console.log(buttons)
-// for (const button of buttons){
-//   button.addEventListener("click", () => {
-//     debugger;
-//   })
-// }
+for (const button of buttons){
+  button.addEventListener("click", () => {
+    debugger;
+  })
+}
+
+
+// Mangers //
