@@ -1,6 +1,6 @@
 class EquipmentItem {
 
-  constructor (id, name, equipmentType, uniqueId, warranty, manufactureId, notes, packId, specs, manual, picture) {
+  constructor (id, name, equipmentType, warranty, manufactureId, notes, packId, specs, uniqueId, manual, picture) {
       this.id = id;
       this.name = name;
       this.equipmentType = equipmentType;

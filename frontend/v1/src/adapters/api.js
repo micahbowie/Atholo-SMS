@@ -60,7 +60,7 @@ class API {
          .then(this.parseJSON)
          .then(equipmentItems => {
            for (const equipmentItem of equipmentItems){
-             let item = new EquipmentItem(equipmentItem.id, equipmentItem.name, equipmentItem.equipmentType, equipmentItem.uniqueId, equipmentItem.warranty, equipmentItem.manufactureId, equipmentItem.notes, equipmentItem.packId, equipmentItem.specs, equipmentItem.manual, equipmentItem.picture)
+             let item = new EquipmentItem(equipmentItem.id, equipmentItem.name, equipmentItem.equipment_type, equipmentItem.warranty, equipmentItem.manufacture_id, equipmentItem.notes, equipmentItem.pack_id, equipmentItem.specs, equipmentItem.unique_id, equipmentItem.manual, equipmentItem.picture)
              item.renderEquipmentItem();
            }
          })
@@ -70,7 +70,7 @@ class API {
          fetch(this.equipmentItemsURL)
          .then(this.parseJSON)
          .then(equipmentItem => {
-             let item = new EquipmentItem(equipmentItem.id, equipmentItem.name, equipmentItem.equipmentType, equipmentItem.uniqueId, equipmentItem.warranty, equipmentItem.manufactureId, equipmentItem.notes, equipmentItem.packId, equipmentItem.specs, equipmentItem.manual, equipmentItem.picture)
+             let item = new EquipmentItem(equipmentItem.id, equipmentItem.name, equipmentItem.equipment_type, equipmentItem.warranty, equipmentItem.manufacture_id, equipmentItem.notes, equipmentItem.pack_id, equipmentItem.specs, equipmentItem.unique_id, equipmentItem.manual, equipmentItem.picture)
              item.renderEquipmentItem();
          })
       }
