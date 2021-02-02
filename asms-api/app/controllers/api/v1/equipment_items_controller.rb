@@ -14,6 +14,7 @@ class Api::V1::EquipmentItemsController < ApplicationController
 
   def create
     @equipment_item = EquipmentItem.new(equipment_item_params)
+    @equipment_item.unique_id = "Ath" + rand.to_s[2..6]
     if @equipment_item.save
       render json: @equipment_item, status: :created, location: @equipment_item
     else
