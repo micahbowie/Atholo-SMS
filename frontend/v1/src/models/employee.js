@@ -40,5 +40,20 @@ class Employee {
       `
   }
 
+  renderEmployeeTable() {
+      let employeeRow = document.getElementById("input-employee-row")
+      employeeRow.innerHTML +=
+      `
+          <TR>
+            <TD>${this.firstName}</TD>
+            <TD>${this.lastName}</TD>
+            <TD>${this.age}</TD>
+            <TD>${this.school}</TD>
+            <TD>${this.address}</TD>
+            <TD>${this.phone}</TD>
+            <TD>${this.email}</TD>
+          </TR>
+      `
+  }
 
 }
