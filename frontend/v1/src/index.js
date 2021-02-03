@@ -1,6 +1,9 @@
 const api = new API();
 document.addEventListener("DOMContentLoaded", () => {
   api.fetchManager(1)
+  api.fetchSchools()
+  createSchoolForm()
+  // api.fetchSchool(1)
   // api.fetchEmployees()
   // api.fetchContacts()
   // createContactForm()
@@ -249,4 +252,76 @@ function contactFormSubmission() {
     contct.renderContact();
   })
 
+}
+
+
+// School //
+
+function createSchoolForm() {
+  let schoolItemForm = document.getElementById("create-school-container")
+  schoolItemForm.innerHTML +=
+
+  `
+  <h3>Add new School: </h3>
+  <form>
+    <label for="name">Name:</label>
+     <input type="text" id="name" name="name"><br>
+    <label for="mascot">Mascot:</label>
+     <input type="text" id="mascot" name="mascot"><br>
+     <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone"><br>
+      <label for="address">Address:</label>
+       <input type="text" id="address" name="address"><br>
+    <label for="athletic_conference">Athletic Conference:</label>
+     <input type="text" id="athletic_conference" name="athletic_conference"><br>
+    <label for="county">County:</label>
+     <input type="text" id="county" name="county"><br>
+    <label for="school_district">School District:</label>
+     <input type="text" id="school_district" name="school_district"><br>
+    <label for="website">Website:</label>
+     <input type="text" id="website" name="website"><br>
+     <label for="notes">Notes:</label>
+     <input type="text" id="notes" name="notes"><br>
+     <input type="submit" id="submit-button" value="Save">
+  </form>
+  `
+  schoolItemForm.addEventListener("submit", schoolFormSubmission);
+
+}
+
+
+function schoolFormSubmission() {
+  event.preventDefault();
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let address = document.getElementById("address").value;
+  let mascot = document.getElementById("mascot").value;
+  let athleticConference = document.getElementById("athletic_conference").value;
+  let county = document.getElementById("county").value;
+  let schoolDistrict = document.getElementById("school_district").value;
+  let website = document.getElementById("website").value;
+  let notes = document.getElementById("notes").value;
+
+  let school = {
+    name: name,
+    phone: phone,
+    address: address,
+    mascot: mascot,
+    athletic_conference: athleticConference,
+    county: county,
+    school_district: schoolDistrict,
+    website: website,
+    notes: notes
+  }
+
+  fetch("http://localhost:3000/api/v1/schools", {
+    method: "POST",
+    headers: {"Accepts": "application/json", "Content-Type": "application/json"},
+    body: JSON.stringify(school)
+  })
+  .then(resp => resp.json())
+  .then(school => {
+    let schl = new School(school.id, school.name, school.phone, school.address, school.mascot, school.athletic_conference, school.county, school.school_district, school.website, school.notes)
+    schl.renderSchool();
+  })
 }
