@@ -4,45 +4,92 @@ document.addEventListener("DOMContentLoaded", () => {
   // api.fetchSchools()
   // createSchoolForm()
   // api.fetchSchool(1)
-  // api.fetchEmployees()
+  createEmployeeTable()
+  api.fetchEmployees()
   // api.fetchContacts()
   // createContactForm()
   // api.fetchContact(3)
   // api.fetchEquipmentItems()
-  // createEmployeeForm()
+  createEmployeeForm()
   // createEquipmentItemForm()
 })
 
 
 // Employee //
+function createEmployeeTable() {
+  let employeeDiv = document.getElementById("employees-container")
+  employeeDiv.innerHTML +=
+  `
+  <div class="table-wrapper">
+    <TABLE id="employees-table">
+      <thead>
+       <TR>
+          <TH>First Name</TH>
+          <TH>Last Name</TH>
+          <TH>Age</TH>
+          <TH>School</TH>
+          <TH>Address</TH>
+          <TH>Phone</TH>
+          <TH>Email</TH>
+       </TR>
+      </thead>
+      <tbody id="input-employee-row">
+
+      </tbody>
+    </TABLE>
+  </div>
+  `
+}
 
 function createEmployeeForm() {
-  let employeeForm = document.getElementById("create-employee-container")
+  let employeeForm = document.getElementById("employees-container")
   employeeForm.innerHTML +=
 
   `
-  <h3>Add a new employee: </h3>
-  <form>
-    <label for="first_name">First name:</label>
-     <input type="text" id="first_name" name="last_name"><br>
-    <label for="last_name">Last name:</label>
-     <input type="text" id="last_name" name="last_name"><br>
-    <label for="age">age:</label>
-     <input type="text" id="age" name="age"><br>
-    <label for="job_type">Job:</label>
-     <input type="text" id="job_type" name="job_type"><br>
-    <label for="school">School:</label>
-     <input type="text" id="school" name="school"><br>
-    <label for="phone">Phone:</label>
-     <input type="text" id="phone" name="phone"><br>
-    <label for="email">Email:</label>
-     <input type="text" id="email" name="email"><br>
-    <label for="address">Adress:</label>
-     <input type="text" id="address" name="address"><br>
-     <label for="notes">Notes:</label>
-      <input type="text" id="notes" name="notes"><br>
-     <input type="submit" value="Save">
-  </form>
+  <div id="create-employee-container">
+      <h3>New Employee</h3>
+      <hr>
+      <form class="row g-3">
+        <div class="col-auto">
+          <label for="first_name">First Name</label>
+          <input type="text" name="first_name"  class="form-control" id="first_name" placeholder="Jane" required>
+        </div>
+        <div class="col-auto">
+          <label for="last_name">Last Name</label>
+          <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Doe" required>
+        </div>
+        <div class="col-md-1">
+          <label for="age">Age</label>
+          <input type="text" name="age" class="form-control" id="age" placeholder="21" required>
+        </div>
+        <div class="col-md-3">
+          <label for="email">Email</label>
+          <input type="text" name="email" class="form-control" id="email" placeholder="janedoe@gmail.com" required>
+        </div>
+        <div class="col-auto">
+          <label for="phone">Phone</label>
+          <input type="text" name="phone" class="form-control" id="phone" placeholder="6148092345" required>
+        </div>
+        <div class="col-md-3">
+          <label for="school">School</label>
+          <input type="text" name="school" class="form-control" id="school" placeholder="New Albany High School" required>
+        </div>
+        <div class="col-md-3">
+          <label for="job_type">Position</label>
+          <input type="text" name="job_type" class="form-control" id="job_type" placeholder="Video Editor" required>
+        </div>
+        <div class="col-md-5">
+          <label for="exampleFormControlInput1">Address</label>
+          <input type="text" name="address" class="form-control" id="address" placeholder="123 Main St, Columbus OH 43235" required>
+        </div>
+
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea class="form-control" name="notes"  id="notes" rows="5"></textarea>
+      </div>
+      <button type="submit" class="btn btn-warning">Add Employee</button>
+      </form>
+  </div>
   `
 
   employeeForm.addEventListener("submit", employeeFormSubmission);
