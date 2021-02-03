@@ -33,7 +33,7 @@ class Employee {
           <h5> Email: ${this.email} </h5>
           <h5> notes: ${this.notes} </h5>
         </li>
-        <button class="employeeButton" data-id=${this.id}> Remove Employee </button>
+        <button class="delete-bttn" data-id=${this.id}> Remove Employee </button>
       </ul>
 
 
