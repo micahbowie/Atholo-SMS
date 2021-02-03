@@ -126,15 +126,27 @@ class API {
       return this.url + '/contacts'
     }
 
-       // Requests //
-    fetchContacts = () => {
-      return fetch(this.contactsURL).then(this.parseJSON)
-    }
+      // Requests //
+       fetchContacts = () => {
+          fetch(this.contactsURL)
+          .then(this.parseJSON)
+          // .then(console.log(contacts))
+          .then(contacts => {
+            for (const contact of contacts){
+              let cntct = new Contact(contact.id, contact.first_name, contact.last_name, contact.phone, contact.alt_phone, contact.email, contact.alt_email, contact.company, contact.website, contact.job_title, contact.department, contact.address, contact.notes, contact.school, contact.school_id)
+              cntct.renderContact();
+            }
+          })
+       }
 
     fetchContact = (id) => {
-      return fetch(this.contactsURL + `/${id}`).then(this.parseJSON)
+      return fetch(this.contactsURL + `/${id}`)
+      .then(this.parseJSON)
+      .then(contact => {
+        let cntct = new Contact(contact.id, contact.first_name, contact.last_name, contact.phone, contact.alt_phone, contact.email, contact.alt_email, contact.company, contact.website, contact.job_title, contact.department, contact.address, contact.notes, contact.school, contact.school_id)
+        cntct.renderContact();
+
+      })
     }
-
-
 
 }
