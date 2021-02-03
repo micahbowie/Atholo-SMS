@@ -1,1 +1,2 @@
 -create text area for notes in employee form
+-add a renderTable function to classes
