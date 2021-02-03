@@ -32,7 +32,7 @@ class API {
          .then(employees => {
            for (const employee of employees){
              let emply = new Employee(employee.id, employee.first_name, employee.last_name, employee.age, employee.school, employee.address, employee.phone, employee.email, employee.snapchat, employee.instagram, employee.linkedin, employee.major, employee.career_path, employee.manager_id, employee.notes)
-             emply.renderEmployee();
+             emply.renderEmployeeTable();
            }
          })
       }
