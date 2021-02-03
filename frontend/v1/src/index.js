@@ -1,8 +1,8 @@
 const api = new API();
 document.addEventListener("DOMContentLoaded", () => {
-  api.fetchManager(1)
-  api.fetchSchools()
-  createSchoolForm()
+  // api.fetchManager(1)
+  // api.fetchSchools()
+  // createSchoolForm()
   // api.fetchSchool(1)
   // api.fetchEmployees()
   // api.fetchContacts()
