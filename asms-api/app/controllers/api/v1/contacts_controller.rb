@@ -15,7 +15,7 @@ class Api::V1::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      render json: @contact, status: :created, location: @contact
+      render json: @contact, status: 200
     else
       render json: @contact.errors, status: :unprocessable_entity
     end
@@ -41,6 +41,6 @@ class Api::V1::ContactsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :phone, :email, :addressschool, :alt_phone, :alt_email, :company, :website, :job_title, :department, :note)
+      params.require(:contact).permit(:first_name, :last_name, :phone, :email, :address,:school, :alt_phone, :alt_email, :company, :website, :job_title, :department, :notes)
     end
 end
