@@ -111,13 +111,27 @@ class API {
     }
 
        // Requests //
-    fetchSchools = () => {
-      return fetch(this.schoolsURL).then(this.parseJSON)
-    }
+        fetchSchools = () => {
+           fetch(this.schoolsURL)
+           .then(this.parseJSON)
+           .then(schools => {
+             for (const school of schools){
+               let schl = new School(school.id, school.name, school.phone, school.address, school.mascot, school.athletic_conference, school.county, school.school_district, school.website, school.notes)
+               schl.renderSchool();
+             }
+           })
+        }
 
-    fetchSchool = (id) => {
-      return fetch(this.schoolsURL + `/${id}`).then(this.parseJSON)
-    }
+     fetchSchool = (id) => {
+       return fetch(this.schoolsURL + `/${id}`)
+       .then(this.parseJSON)
+       .then(school => {
+         let schl = new School(school.id, school.name, school.phone, school.address, school.mascot, school.athletic_conference, school.county, school.school_district, school.website, school.notes)
+         schl.renderSchool();
+
+       })
+     }
+
 
 
     // Contact(s) //
@@ -130,7 +144,6 @@ class API {
        fetchContacts = () => {
           fetch(this.contactsURL)
           .then(this.parseJSON)
-          // .then(console.log(contacts))
           .then(contacts => {
             for (const contact of contacts){
               let cntct = new Contact(contact.id, contact.first_name, contact.last_name, contact.phone, contact.alt_phone, contact.email, contact.alt_email, contact.company, contact.website, contact.job_title, contact.department, contact.address, contact.notes, contact.school, contact.school_id)
