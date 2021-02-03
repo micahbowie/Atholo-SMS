@@ -12,8 +12,22 @@ body {
   [class*="col"]{
     background-color: blue;
     color: white;
-    text-align: center;
+    /* text-align: center; */
     padding: 1rem;
     margin: 5px;
-    height: 100vh;
+    /* height: 100vh; */
+  }
+
+  [class="col-md-2 text-center"] {
+
+  }
+
+  #controlbar{
+    width: 100%;
+    height: 5%;
+  }
+
+  #logo {
+  width: 60%;
+  height: auto;
   }
