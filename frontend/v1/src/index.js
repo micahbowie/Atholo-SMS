@@ -1,10 +1,10 @@
 const api = new API();
 document.addEventListener("DOMContentLoaded", () => {
   // api.fetchManager(1)
-  // api.fetchEmployees()
-  api.fetchEquipmentItems()
+  api.fetchEmployees()
+  // api.fetchEquipmentItems()
   // createEmployeeForm()
-  createEquipmentItemForm()
+  // createEquipmentItemForm()
 })
 
 
@@ -82,13 +82,14 @@ function employeeFormSubmission() {
 }
 
 
-let buttons = document.querySelectorAll(".employeeButton")
+let buttons = document.querySelectorAll(".delete-bttn")
+buttons = document.querySelectorAll(".delete-bttn")
 console.log(buttons)
-for (const button of buttons){
-  button.addEventListener("click", () => {
-    debugger;
-  })
-}
+// for (const button of buttons){
+//   button.addEventListener("click", () => {
+//     debugger;
+//   })
+// }
 
 
 // Equipment Item //
@@ -131,18 +132,17 @@ function equipmentItemFormSubmission() {
   let notes = document.getElementById("notes").value;
   let packId = document.getElementById("pack_id").value;
   let specs = document.getElementById("specs").value;
-  console.log("About to create item")
+
   let equipmentItem = {
     name: name,
-    equipmentType: equipmentType,
+    equipment_type: equipmentType,
     warranty: warranty,
-    manufactureId: manufactureId,
+    manufacture_id: manufactureId,
     notes: notes,
-    packId: packId,
+    pack_id: packId,
     specs: specs
   }
 
-  console.log("Item created")
   fetch("http://localhost:3000/api/v1/equipment_items", {
     method: "POST",
     headers: {"Accepts": "application/json", "Content-Type": "application/json"},
@@ -151,7 +151,6 @@ function equipmentItemFormSubmission() {
   .then(resp => resp.json())
   .then(equipmentItem => {
     let item = new EquipmentItem(equipmentItem.id, equipmentItem.name, equipmentItem.equipment_type, equipmentItem.warranty, equipmentItem.manufacture_id, equipmentItem.notes, equipmentItem.pack_id, equipmentItem.specs, equipmentItem.unique_id, equipmentItem.manual, equipmentItem.picture)
-    console.log("Just before render")
     item.renderEquipmentItem();
   })
 }
