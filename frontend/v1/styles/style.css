@@ -10,17 +10,40 @@ body {
   }
 
   [class*="col"]{
-    background-color: blue;
-    color: white;
+    /* background-color: blue; */
+    /* color: white; */
     /* text-align: center; */
     padding: 1rem;
     margin: 5px;
     /* height: 100vh; */
   }
 
-  [class="col-md-2 text-center"] {
+  .list-group-item {
+    background-color: none;
+    font-size: 19px;
+    margin: 5px;
 
   }
+
+  [class="col-md-2 sidebar"] {
+    margin-top:10px;
+    padding: 20px;
+    outline: 2px solid #d39736;
+    outline-offset: -10px;
+  }
+
+  [class="col-md text-center"] {
+    margin-top:10px;
+    padding: 20px;
+    outline: 2px solid #d39736;
+    outline-offset: -10px;
+  }
+
+[class="d-grid gap-2 d-md-flex justify-content-md-end"] {
+  background-color: pink;
+  max-height: 40%;
+}
+
 
   #controlbar{
     width: 100%;
