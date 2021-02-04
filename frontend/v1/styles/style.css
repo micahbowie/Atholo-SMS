@@ -4,6 +4,9 @@ body {
     overflow: hidden;
   }
 
+  [class="far fa-bell fa-2x"]{position: absolute; right: 30px; margin-top:10px; padding: 0; color: #d39736;}
+
+
 [class="container-fluid main"]{
     padding: 1rem;
   }
@@ -34,6 +37,7 @@ body {
     padding: 20px;
     outline: 2px solid #d39736;
     outline-offset: -10px;
+    color: #d39736;
   }
 
   [class="col-md main content d-flex justify-content-center"] {
