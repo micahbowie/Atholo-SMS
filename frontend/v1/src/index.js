@@ -14,8 +14,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // createEquipmentItemForm()
 })
 
+// let contactBttn = document.getElementsByClassName('list-group-item text-center contact')
+// contactBttn[0].addEventListener("click", () => {
+//   api.fetchContacts()
+//   createContactForm()
+// })
 
 // Employee //
+
+// let employeeBttn = document.getElementsByClassName('list-group-item text-center employee')
+// employeeBttn[0].addEventListener("click", () => {
+//   createEmployeeTable()
+//   api.fetchEmployees()
+//   createEmployeeForm()
+// })
+
 function createEmployeeTable() {
   let employeeDiv = document.getElementById("employees-container")
   employeeDiv.innerHTML +=
@@ -130,7 +143,7 @@ function employeeFormSubmission() {
   .then(resp => resp.json())
   .then(employee => {
     let emply = new Employee(employee.id, employee.first_name, employee.last_name, employee.age, employee.school, employee.address, employee.phone, employee.email, employee.snapchat, employee.instagram, employee.linkedin, employee.major, employee.career_path, employee.manager_id, employee.notes)
-    emply.renderEmployee();
+    emply.renderEmployeeTable();
   })
 }
 
